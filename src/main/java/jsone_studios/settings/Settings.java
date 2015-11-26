@@ -25,11 +25,6 @@ public class Settings
         return element.asString(element.getDefaultValue());
     }
 
-    public String getString(SettingsElement<String> element)
-    {
-        return element.parseValue(getValueAsString(element));
-    }
-
     public byte getByte(SettingsElement element)
     {
         return Byte.decode(getValueAsString(element));
