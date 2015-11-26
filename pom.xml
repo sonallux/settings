@@ -6,7 +6,7 @@
 
     <groupId>jsone_studios.settings</groupId>
     <artifactId>settings</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <name>Settings</name>
