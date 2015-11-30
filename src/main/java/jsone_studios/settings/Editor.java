@@ -20,6 +20,17 @@ public class Editor
         return putValue(element, element.asString(value));
     }
 
+    public <T> Editor reset(SettingsElement<T> element)
+    {
+        return putValue(element, element.asString(element.getDefaultValue()));
+    }
+
+    public Editor delete(SettingsElement element)
+    {
+        this.settings.delete(element);
+        return this;
+    }
+
     public void save()
     {
         settings.save();
