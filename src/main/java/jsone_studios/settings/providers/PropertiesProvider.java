@@ -53,6 +53,12 @@ public class PropertiesProvider implements SettingsProvider
     }
 
     @Override
+    public void delete(String key)
+    {
+        this.properties.remove(key);
+    }
+
+    @Override
     public String getValue(String key)
     {
         return properties.getProperty(key, null);

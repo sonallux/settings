@@ -25,36 +25,6 @@ public class Settings
         return element.asString(element.getDefaultValue());
     }
 
-    public byte getByte(SettingsElement element)
-    {
-        return Byte.decode(getValueAsString(element));
-    }
-
-    public int getInt(SettingsElement element)
-    {
-        return Integer.parseInt(getValueAsString(element));
-    }
-
-    public long getLong(SettingsElement element)
-    {
-        return Long.parseLong(getValueAsString(element));
-    }
-
-    public float getFloat(SettingsElement element)
-    {
-        return Float.parseFloat(getValueAsString(element));
-    }
-
-    public double getDouble(SettingsElement element)
-    {
-        return Double.parseDouble(getValueAsString(element));
-    }
-
-    public boolean getBoolean(SettingsElement element)
-    {
-        return Boolean.parseBoolean(getValueAsString(element));
-    }
-
     public <T> T get(SettingsElement<T> element)
     {
         return element.parseValue(getValueAsString(element));
@@ -73,6 +43,11 @@ public class Settings
     void put(SettingsElement element, String value)
     {
         settingsProviders.forEach(settingsProvider -> settingsProvider.put(element.getKey(), value));
+    }
+
+    void delete(SettingsElement element)
+    {
+        settingsProviders.forEach(settingsProvider -> settingsProvider.delete(element.getKey()));
     }
 
     void save()

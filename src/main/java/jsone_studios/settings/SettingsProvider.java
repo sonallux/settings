@@ -6,4 +6,5 @@ public interface SettingsProvider
     String getValue(String key);
     boolean hasValue(String key);
     void put(String key, String value);
+    void delete(String key);
 }
