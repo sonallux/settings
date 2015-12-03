@@ -13,7 +13,7 @@ public class IntegerConverterTest
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void testByteFromString()
+    public void testIntFromString()
     {
         assertEquals(Integer.valueOf(Integer.MIN_VALUE), INT_CONVERTER.fromString("-2147483648"));
         assertEquals(Integer.valueOf(-999), INT_CONVERTER.fromString("-999"));
@@ -25,35 +25,35 @@ public class IntegerConverterTest
     }
 
     @Test
-    public void testByteFromStringThrowsException()
+    public void testIntFromStringThrowsException0()
     {
         exception.expect(NumberFormatException.class);
         INT_CONVERTER.fromString("-3333333333");
     }
 
     @Test
-    public void testByteFromStringThrowsException1()
+    public void testIntFromStringThrowsException1()
     {
         exception.expect(NumberFormatException.class);
         INT_CONVERTER.fromString("-2147483649");
     }
 
     @Test
-    public void testByteFromStringThrowsException2()
+    public void testIntFromStringThrowsException2()
     {
         exception.expect(NumberFormatException.class);
         INT_CONVERTER.fromString("2147483648");
     }
 
     @Test
-    public void testByteFromStringThrowsException3()
+    public void testIntFromStringThrowsException3()
     {
         exception.expect(NumberFormatException.class);
         INT_CONVERTER.fromString("3333333333");
     }
 
     @Test
-    public void testByteAsString()
+    public void testIntAsString()
     {
         assertEquals("-2147483648", INT_CONVERTER.asString(Integer.MIN_VALUE));
         assertEquals("-1", INT_CONVERTER.asString(-1));

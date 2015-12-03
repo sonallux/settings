@@ -25,7 +25,7 @@ public class ByteConverterTest
     }
 
     @Test
-    public void testByteFromStringThrowsException()
+    public void testByteFromStringThrowsException0()
     {
         exception.expect(NumberFormatException.class);
         BYTE_CONVERTER.fromString("-500");
