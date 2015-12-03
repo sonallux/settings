@@ -4,7 +4,7 @@ import static jsone_studios.settings.Converters.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class ConvertersTest {
+public class BooleanConverterTest {
 
     @Test
     public void testBooleanFromString() {
