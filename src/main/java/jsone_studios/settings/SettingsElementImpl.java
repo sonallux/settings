@@ -1,5 +1,9 @@
 package jsone_studios.settings;
 
+/**
+ * Default implementation of SettingsElement which uses a Converter to convert from and to the stored Strings
+ * @param <T> the type of this SettingsElement
+ */
 class SettingsElementImpl<T> extends SettingsElement<T>
 {
     private T defaultValue;

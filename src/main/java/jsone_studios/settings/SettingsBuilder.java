@@ -12,6 +12,11 @@ public class SettingsBuilder implements StepLoggingListener, StepProvider, StepM
         providerList = new ArrayList<>();
     }
 
+    /**
+     * Creates a new SettingsBuilder to build new Settings
+     *
+     * @return the new SettingsBuilder
+     */
     public static StepLoggingListener create()
     {
         return new SettingsBuilder();

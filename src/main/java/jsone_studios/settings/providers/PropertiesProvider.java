@@ -8,11 +8,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * A SettingsProvider which handles settings stored in .properties files.
+ */
 public class PropertiesProvider implements SettingsProvider
 {
     private Properties properties;
     private File file;
 
+    /**
+     * Constructs a new PropertiesProvider which uses the given file for storing and saving the settings.
+     * @param file the file to load and save settings to
+     */
     public PropertiesProvider(File file)
     {
         this.file = file;

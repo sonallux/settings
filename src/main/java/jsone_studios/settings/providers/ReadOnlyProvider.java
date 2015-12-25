@@ -2,10 +2,17 @@ package jsone_studios.settings.providers;
 
 import jsone_studios.settings.SettingsProvider;
 
+/**
+ * A read only SettingsProvider which prohibits changes the underling SettingsProvider
+ */
 public class ReadOnlyProvider implements SettingsProvider
 {
     private SettingsProvider delegate;
 
+    /**
+     * Constructs a new read only SettingsProvider, which does not allow changes to the given SettingsProvider
+     * @param delegate the SettingsProvider which should be read only
+     */
     public ReadOnlyProvider(SettingsProvider delegate)
     {
         this.delegate = delegate;
