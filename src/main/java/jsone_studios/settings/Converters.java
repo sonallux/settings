@@ -88,7 +88,7 @@ public class Converters
         @Override
         public Boolean fromString(String s)
         {
-            return Boolean.valueOf(s);
+            return s != null && (s.equalsIgnoreCase("true") || s.equalsIgnoreCase("1"));
         }
     };
 }
