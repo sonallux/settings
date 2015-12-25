@@ -1,5 +1,9 @@
 package jsone_studios.settings;
 
+/**
+ * This class handles logging for the settings library.
+ * If a LoggingListener is set, delegates logging events to a LoggingListener, otherwise the events will be print to <code>System.err</code>.
+ */
 public class LogHandler
 {
     private static LoggingListener loggingListener;

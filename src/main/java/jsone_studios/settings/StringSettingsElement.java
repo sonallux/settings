@@ -1,5 +1,8 @@
 package jsone_studios.settings;
 
+/**
+ * A simple wrapper for SettingsElements of type String because Strings needn't be converted
+ */
 class StringSettingsElement extends SettingsElement<String>
 {
     private String defaultValue;
