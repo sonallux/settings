@@ -3,7 +3,7 @@ package jsone_studios.settings;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SettingsBuilder implements StepLoggingListener, StepProvider, StepMoreProvider, StepBuild
+public class SettingsBuilder implements StepProvider, StepMoreProvider, StepBuild
 {
     List<SettingsProvider> providerList;
 
@@ -17,16 +17,9 @@ public class SettingsBuilder implements StepLoggingListener, StepProvider, StepM
      *
      * @return the new SettingsBuilder
      */
-    public static StepLoggingListener create()
+    public static StepProvider create()
     {
         return new SettingsBuilder();
-    }
-
-    @Override
-    public StepProvider addLoggingListener(LoggingListener listener)
-    {
-        LogHandler.setLoggingListener(listener);
-        return this;
     }
 
     @Override
