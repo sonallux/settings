@@ -27,8 +27,8 @@
 
     <distributionManagement>
         <repository>
-            <id>nas1-ftp</id>
-            <url>ftp://nas1/array1/share/Musik/maven</url>
+            <id>raspberrypi-ftp</id>
+            <url>sftp://raspberrypi/repo</url>
         </repository>
     </distributionManagement>
 
@@ -37,7 +37,7 @@
             <!-- Enabling the use of FTP -->
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ftp</artifactId>
+                <artifactId>wagon-ssh</artifactId>
                 <version>2.10</version>
             </extension>
         </extensions>
