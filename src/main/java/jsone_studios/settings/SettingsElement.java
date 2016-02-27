@@ -4,6 +4,7 @@ package jsone_studios.settings;
  * This class describes a SettingsElement of the type <code>T</code>
  * @param <T> the type
  */
+//TODO: add description what this element is for
 public abstract class SettingsElement<T>
 {
     private String key;
