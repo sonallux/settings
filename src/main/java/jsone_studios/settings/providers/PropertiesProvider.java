@@ -11,6 +11,7 @@ import java.util.Properties;
 /**
  * A SettingsProvider which handles settings stored in .properties files.
  */
+//TODO: do not use java.util.Properties as order is not constant because Properties uses a HashMap
 public class PropertiesProvider implements SettingsProvider
 {
     private Properties properties;
