@@ -27,18 +27,24 @@
 
     <distributionManagement>
         <repository>
-            <id>raspberrypi-ftp</id>
-            <url>sftp://raspberrypi/repo</url>
+            <id>bitbucket</id>
+            <url>git://http://bitbucket.org/jsone-studios/maven.git</url>
         </repository>
     </distributionManagement>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>bitbucket</id>
+            <url>https://api.bitbucket.org/1.0/repositories/jsone-studios/maven/raw/master</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <extensions>
-            <!-- Enabling the use of FTP -->
             <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ssh</artifactId>
-                <version>2.10</version>
+                <groupId>de.nename</groupId>
+                <artifactId>wagon-git</artifactId>
+                <version>0.3.1</version>
             </extension>
         </extensions>
         <plugins>
