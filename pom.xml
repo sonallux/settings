@@ -28,7 +28,7 @@
     <distributionManagement>
         <repository>
             <id>bitbucket</id>
-            <url>git://http://bitbucket.org/jsone-studios/maven.git</url>
+            <url>git://https://bitbucket.org/jsone-studios/maven.git</url>
         </repository>
     </distributionManagement>
 
