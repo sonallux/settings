@@ -27,26 +27,18 @@
 
     <distributionManagement>
         <repository>
-            <id>bitbucket</id>
-            <url>git://https://bitbucket.org/jsone-studios/maven.git</url>
+            <id>jsone-studios</id>
+            <name>Public releases</name>
+            <url>https://maven.jsone-studios.de/public-release</url>
         </repository>
+        <snapshotRepository>
+            <id>jsone-studios</id>
+            <name>Public snapshots</name>
+            <url>https://maven.jsone-studios.de/public-snapshot</url>
+        </snapshotRepository>
     </distributionManagement>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>bitbucket</id>
-            <url>https://api.bitbucket.org/1.0/repositories/jsone-studios/maven/raw/master</url>
-        </pluginRepository>
-    </pluginRepositories>
-
     <build>
-        <extensions>
-            <extension>
-                <groupId>de.nename</groupId>
-                <artifactId>wagon-git</artifactId>
-                <version>0.3.1</version>
-            </extension>
-        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -57,19 +49,6 @@
                         <id>attach-sources</id>
                         <goals>
                             <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.3</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
