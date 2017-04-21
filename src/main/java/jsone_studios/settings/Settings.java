@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * This class provides the core functionality of the library.
  */
+@SuppressWarnings("unused")
 public class Settings
 {
     private List<SettingsProvider> settingsProviders;
