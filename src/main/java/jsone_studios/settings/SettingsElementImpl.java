@@ -9,7 +9,7 @@ class SettingsElementImpl<T> extends SettingsElement<T>
     private T defaultValue;
     private Converter<T> converter;
 
-    public SettingsElementImpl(String key, T defaultValue, Converter<T> converter)
+    SettingsElementImpl(String key, T defaultValue, Converter<T> converter)
     {
         super(key);
         this.defaultValue = defaultValue;

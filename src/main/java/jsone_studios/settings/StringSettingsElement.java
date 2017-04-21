@@ -7,7 +7,7 @@ class StringSettingsElement extends SettingsElement<String>
 {
     private String defaultValue;
 
-    public StringSettingsElement(String key, String defaultValue)
+    StringSettingsElement(String key, String defaultValue)
     {
         super(key);
         this.defaultValue = defaultValue;

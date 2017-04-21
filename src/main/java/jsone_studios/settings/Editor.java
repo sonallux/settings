@@ -3,6 +3,7 @@ package jsone_studios.settings;
 /**
  * This handles editing settings.
  */
+@SuppressWarnings("unused")
 public class Editor
 {
     private Settings settings;

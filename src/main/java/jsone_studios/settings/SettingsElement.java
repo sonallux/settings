@@ -5,6 +5,7 @@ package jsone_studios.settings;
  * @param <T> the type
  */
 //TODO: add description what this element is for
+@SuppressWarnings({"unused", "WeakerAccess"})
 public abstract class SettingsElement<T>
 {
     private String key;
