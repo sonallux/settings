@@ -3,6 +3,7 @@ package jsone_studios.settings;
 /**
  * This utility class implements <code>Converters</code> for primitives.
  */
+@SuppressWarnings("WeakerAccess")
 public class Converters
 {
     /**
@@ -17,9 +18,17 @@ public class Converters
         }
 
         @Override
-        public Byte fromString(String s)
+        public Byte fromString(String s) throws ConversionException
         {
-            return Byte.valueOf(s);
+            try
+            {
+                return Byte.valueOf(s);
+            }
+            catch (NumberFormatException e)
+            {
+                throw new ConversionException("Failed to convert to byte: " + s, e);
+            }
+
         }
     };
 
@@ -35,9 +44,15 @@ public class Converters
         }
 
         @Override
-        public Integer fromString(String s)
+        public Integer fromString(String s) throws ConversionException
         {
-            return Integer.valueOf(s);
+            try
+            {
+                return Integer.valueOf(s);
+            }
+            catch (NumberFormatException e){
+                throw new ConversionException("Failed to convert to int: " + s, e);
+            }
         }
     };
 
@@ -53,9 +68,15 @@ public class Converters
         }
 
         @Override
-        public Long fromString(String s)
+        public Long fromString(String s) throws ConversionException
         {
-            return Long.valueOf(s);
+            try
+            {
+                return Long.valueOf(s);
+            }
+            catch (NumberFormatException e){
+                throw new ConversionException("Failed to convert to long: " + s, e);
+            }
         }
     };
 
@@ -71,9 +92,16 @@ public class Converters
         }
 
         @Override
-        public Float fromString(String s)
+        public Float fromString(String s) throws ConversionException
         {
-            return Float.valueOf(s);
+            try
+            {
+                return Float.valueOf(s);
+            }
+            catch (NumberFormatException e)
+            {
+                throw new ConversionException("Failed to convert to float: " + s, e);
+            }
         }
     };
 
@@ -89,9 +117,16 @@ public class Converters
         }
 
         @Override
-        public Double fromString(String s)
+        public Double fromString(String s) throws ConversionException
         {
-            return Double.valueOf(s);
+            try
+            {
+                return Double.valueOf(s);
+            }
+            catch (NumberFormatException | NullPointerException e)
+            {
+                throw new ConversionException("Failed to convert to double: " + s, e);
+            }
         }
     };
 

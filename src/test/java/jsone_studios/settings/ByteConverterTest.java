@@ -13,42 +13,42 @@ public class ByteConverterTest
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void testByteFromString()
+    public void testByteFromString() throws ConversionException
     {
         assertEquals(Byte.valueOf(Byte.MIN_VALUE), BYTE_CONVERTER.fromString("-128"));
-        assertEquals(Byte.valueOf((byte)-100), BYTE_CONVERTER.fromString("-100"));
-        assertEquals(Byte.valueOf((byte)-1), BYTE_CONVERTER.fromString("-1"));
-        assertEquals(Byte.valueOf((byte)0), BYTE_CONVERTER.fromString("0"));
-        assertEquals(Byte.valueOf((byte)1), BYTE_CONVERTER.fromString("1"));
-        assertEquals(Byte.valueOf((byte)100), BYTE_CONVERTER.fromString("100"));
+        assertEquals(Byte.valueOf((byte) -100), BYTE_CONVERTER.fromString("-100"));
+        assertEquals(Byte.valueOf((byte) -1), BYTE_CONVERTER.fromString("-1"));
+        assertEquals(Byte.valueOf((byte) 0), BYTE_CONVERTER.fromString("0"));
+        assertEquals(Byte.valueOf((byte) 1), BYTE_CONVERTER.fromString("1"));
+        assertEquals(Byte.valueOf((byte) 100), BYTE_CONVERTER.fromString("100"));
         assertEquals(Byte.valueOf(Byte.MAX_VALUE), BYTE_CONVERTER.fromString("127"));
     }
 
     @Test
-    public void testByteFromStringThrowsException0()
+    public void testByteFromStringThrowsException0() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         BYTE_CONVERTER.fromString("-500");
     }
 
     @Test
-    public void testByteFromStringThrowsException1()
+    public void testByteFromStringThrowsException1() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         BYTE_CONVERTER.fromString("-129");
     }
 
     @Test
-    public void testByteFromStringThrowsException2()
+    public void testByteFromStringThrowsException2() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         BYTE_CONVERTER.fromString("128");
     }
 
     @Test
-    public void testByteFromStringThrowsException3()
+    public void testByteFromStringThrowsException3() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         BYTE_CONVERTER.fromString("500");
     }
 

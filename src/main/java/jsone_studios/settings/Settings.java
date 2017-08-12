@@ -16,60 +16,60 @@ public class Settings
         this.settingsProviders = new ArrayList<>(builder.providerList);
     }
 
-    private <T> String getValueAsString(SettingsElement<T> element)
+    private <T> String getValueAsString(SettingsKey<T> key)
     {
         for (SettingsProvider provider : settingsProviders)
         {
-            String value = provider.getValue(element.getKey());
+            String value = provider.getValue(key.getKey());
             if (value != null)
             {
                 return value;
             }
         }
-        return element.asString(element.getDefaultValue());
+        return key.asString(key.getDefaultValue());
     }
 
     /**
-     * Get the value for this SettingsElement
+     * Get the value for this SettingsKey
      *
-     * @param element the SettingsElement
-     * @param <T> the type of the SettingsElement and therefore also of the return value
+     * @param key the SettingsKey
+     * @param <T> the type of the SettingsKey and therefore also of the return value
      * @return the value
      */
-    public <T> T get(SettingsElement<T> element)
+    public <T> T get(SettingsKey<T> key)
     {
-        return element.parseValue(getValueAsString(element));
+        return key.parseValue(getValueAsString(key));
     }
 
     /**
-     * Checks if a value for the SettingsElement exists in any of the SettingsProviders
+     * Checks if a value for the SettingsKey exists in any of the SettingsProviders
      *
-     * @param element the SettingsElement
-     * @return true if at least one SettingsProvider has a value for this SettingsElement, false otherwise
+     * @param key the SettingsKey
+     * @return true if at least one SettingsProvider has a value for this SettingsKey, false otherwise
      */
-    public boolean hasValue(SettingsElement element)
+    public boolean hasValue(SettingsKey key)
     {
-        return settingsProviders.stream().anyMatch(settingsProvider -> settingsProvider.hasValue(element.getKey()));
+        return settingsProviders.stream().anyMatch(settingsProvider -> settingsProvider.hasValue(key.getKey()));
     }
 
     /**
-     * Creates a new Editor to edit the Settings
+     * Creates a new SettingsEditor to edit the Settings
      *
-     * @return the new Editor
+     * @return the new SettingsEditor
      */
-    public Editor edit()
+    public SettingsEditor edit()
     {
-        return new Editor(this);
+        return new SettingsEditor(this);
     }
 
-    void put(SettingsElement element, String value)
+    void put(SettingsKey key, String value)
     {
-        settingsProviders.forEach(settingsProvider -> settingsProvider.put(element.getKey(), value));
+        settingsProviders.forEach(settingsProvider -> settingsProvider.put(key.getKey(), value));
     }
 
-    void delete(SettingsElement element)
+    void delete(SettingsKey key)
     {
-        settingsProviders.forEach(settingsProvider -> settingsProvider.delete(element.getKey()));
+        settingsProviders.forEach(settingsProvider -> settingsProvider.delete(key.getKey()));
     }
 
     void save()

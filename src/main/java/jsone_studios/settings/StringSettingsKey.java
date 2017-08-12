@@ -1,13 +1,13 @@
 package jsone_studios.settings;
 
 /**
- * A simple wrapper for SettingsElements of type String because Strings needn't be converted
+ * A simple wrapper for SettingsKey of type String because Strings needn't be converted
  */
-class StringSettingsElement extends SettingsElement<String>
+class StringSettingsKey extends SettingsKey<String>
 {
     private String defaultValue;
 
-    StringSettingsElement(String key, String defaultValue)
+    StringSettingsKey(String key, String defaultValue)
     {
         super(key);
         this.defaultValue = defaultValue;

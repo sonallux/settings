@@ -20,7 +20,7 @@ public interface Converter<T>
      *
      * @param s the String to convert
      * @return the converted element of type <code>T</code>
-     * @throws NumberFormatException if the given string could not be passe to <code>T</code>
+     * @throws ConversionException if the given string could not be passe to <code>T</code>
      */
-    T fromString(String s);
+    T fromString(String s) throws ConversionException;
 }
