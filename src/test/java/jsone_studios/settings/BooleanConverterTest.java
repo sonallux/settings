@@ -5,10 +5,12 @@ import org.junit.Test;
 import static jsone_studios.settings.Converters.BOOLEAN_CONVERTER;
 import static org.junit.Assert.*;
 
-public class BooleanConverterTest {
+public class BooleanConverterTest
+{
 
     @Test
-    public void testBooleanFromString() {
+    public void testBooleanFromString() throws ConversionException
+    {
         assertTrue(BOOLEAN_CONVERTER.fromString("true"));
         assertTrue(BOOLEAN_CONVERTER.fromString("True"));
         assertTrue(BOOLEAN_CONVERTER.fromString("TRUE"));

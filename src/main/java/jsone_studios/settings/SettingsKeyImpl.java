@@ -1,15 +1,15 @@
 package jsone_studios.settings;
 
 /**
- * Default implementation of SettingsElement which uses a Converter to convert from and to the stored Strings
- * @param <T> the type of this SettingsElement
+ * Default implementation of SettingsKey which uses a Converter to convert from and to the stored Strings
+ * @param <T> the type of this SettingsKey
  */
-class SettingsElementImpl<T> extends SettingsElement<T>
+class SettingsKeyImpl<T> extends SettingsKey<T>
 {
     private T defaultValue;
     private Converter<T> converter;
 
-    SettingsElementImpl(String key, T defaultValue, Converter<T> converter)
+    SettingsKeyImpl(String key, T defaultValue, Converter<T> converter)
     {
         super(key);
         this.defaultValue = defaultValue;
@@ -25,7 +25,14 @@ class SettingsElementImpl<T> extends SettingsElement<T>
     @Override
     public T parseValue(String value)
     {
-        return converter.fromString(value);
+        try
+        {
+            return converter.fromString(value);
+        }
+        catch (ConversionException e)
+        {
+            return defaultValue;
+        }
     }
 
     @Override

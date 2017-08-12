@@ -15,9 +15,9 @@ A simple java library for handling settings/configuration managed in .properties
 </repositories>
 
 <dependency>
-  <groupId>jsone_studios.settings</groupId>
-  <artifactId>settings</artifactId>
-  <version>1.1.0</version>
+    <groupId>jsone_studios.settings</groupId>
+    <artifactId>settings</artifactId>
+    <version>1.1.0</version>
 </dependency>
 ```
 

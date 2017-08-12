@@ -29,7 +29,7 @@ public class FloatConverterTest
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void testFloats()
+    public void testFloats() throws ConversionException
     {
         for (float f : testFloats)
         {
@@ -42,37 +42,37 @@ public class FloatConverterTest
     }
 
     @Test
-    public void testFloatOutOfRange()
+    public void testFloatOutOfRange() throws ConversionException
     {
         assertEquals(Float.NEGATIVE_INFINITY, FLOAT_CONVERTER.fromString("-1.4e99"), 0);
         assertEquals(Float.POSITIVE_INFINITY, FLOAT_CONVERTER.fromString("1.4e99"), 0);
     }
 
     @Test
-    public void testFloatFromStringWithNullString()
+    public void testFloatFromStringWithNullString() throws ConversionException
     {
         exception.expect(NullPointerException.class);
         FLOAT_CONVERTER.fromString(null);
     }
 
     @Test
-    public void testFloatThrowsException0()
+    public void testFloatThrowsException0() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         FLOAT_CONVERTER.fromString("asdf");
     }
 
     @Test
-    public void testFloatThrowsException1()
+    public void testFloatThrowsException1() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         FLOAT_CONVERTER.fromString("--0.0");
     }
 
     @Test
-    public void testFloatThrowsException2()
+    public void testFloatThrowsException2() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         FLOAT_CONVERTER.fromString("0.1e");
     }
 }

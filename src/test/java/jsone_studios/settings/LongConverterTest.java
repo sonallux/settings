@@ -13,7 +13,7 @@ public class LongConverterTest
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void testLongFromString()
+    public void testLongFromString() throws ConversionException
     {
         assertEquals(Long.valueOf(Long.MIN_VALUE), LONG_CONVERTER.fromString("-9223372036854775808"));
         assertEquals(Long.valueOf(-99999), LONG_CONVERTER.fromString("-99999"));
@@ -25,30 +25,30 @@ public class LongConverterTest
     }
 
     @Test
-    public void testLongFromStringThrowsException0()
+    public void testLongFromStringThrowsException0() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         LONG_CONVERTER.fromString("-9999999999999999999");
     }
 
     @Test
-    public void testLongFromStringThrowsException1()
+    public void testLongFromStringThrowsException1() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         LONG_CONVERTER.fromString("-9223372036854775809");
     }
 
     @Test
-    public void testLongFromStringThrowsException2()
+    public void testLongFromStringThrowsException2() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         LONG_CONVERTER.fromString("9223372036854775808");
     }
 
     @Test
-    public void testLongFromStringThrowsException3()
+    public void testLongFromStringThrowsException3() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         LONG_CONVERTER.fromString("9999999999999999999");
     }
 

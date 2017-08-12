@@ -6,9 +6,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static jsone_studios.settings.Converters.DOUBLE_CONVERTER;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class DoubleConverterTest
 {
@@ -32,7 +30,7 @@ public class DoubleConverterTest
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void testDoubles()
+    public void testDoubles() throws ConversionException
     {
         for (Double f : testDoubles)
         {
@@ -45,37 +43,37 @@ public class DoubleConverterTest
     }
 
     @Test
-    public void testDoubleOutOfRange()
+    public void testDoubleOutOfRange() throws ConversionException
     {
         assertEquals(Double.NEGATIVE_INFINITY, DOUBLE_CONVERTER.fromString("-1.4e999"), 0);
         assertEquals(Double.POSITIVE_INFINITY, DOUBLE_CONVERTER.fromString("1.4e999"), 0);
     }
 
     @Test
-    public void testDoubleFromStringWithNullString()
+    public void testDoubleFromStringWithNullString() throws ConversionException
     {
-        exception.expect(NullPointerException.class);
+        exception.expect(ConversionException.class);
         DOUBLE_CONVERTER.fromString(null);
     }
 
     @Test
-    public void testDoubleThrowsException0()
+    public void testDoubleThrowsException0() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         DOUBLE_CONVERTER.fromString("asdf");
     }
 
     @Test
-    public void testDoubleThrowsException1()
+    public void testDoubleThrowsException1() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         DOUBLE_CONVERTER.fromString("--0.0");
     }
 
     @Test
-    public void testDoubleThrowsException2()
+    public void testDoubleThrowsException2() throws ConversionException
     {
-        exception.expect(NumberFormatException.class);
+        exception.expect(ConversionException.class);
         DOUBLE_CONVERTER.fromString("0.1e");
     }
 }
