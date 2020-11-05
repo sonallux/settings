@@ -25,19 +25,6 @@
         </dependency>
     </dependencies>
 
-    <distributionManagement>
-        <repository>
-            <id>jsone-studios</id>
-            <name>Public releases</name>
-            <url>https://maven.jsone-studios.de/public-release</url>
-        </repository>
-        <snapshotRepository>
-            <id>jsone-studios</id>
-            <name>Public snapshots</name>
-            <url>https://maven.jsone-studios.de/public-snapshot</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <build>
         <plugins>
             <plugin>
